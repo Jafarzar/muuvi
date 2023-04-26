@@ -113,7 +113,7 @@ const Hero = () => {
               <Stack
                 direction={["column", "column", "row"]}
                 px={[6, 6, 24]}
-                pb={[6, 6, 0]}
+                pb={[12, 12, 0]}
                 pt={450}
                 h="full"
                 align="center"

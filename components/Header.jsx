@@ -1,12 +1,14 @@
 import { HamburgerIcon, SearchIcon, StarIcon } from "@chakra-ui/icons";
+import { AiFillGithub } from "react-icons/ai";
 import {
   Button,
-  Flex,
   Heading,
   HStack,
+  Icon,
   Input,
   InputGroup,
   InputRightElement,
+  Link,
   Skeleton,
 } from "@chakra-ui/react";
 
@@ -48,7 +50,15 @@ const Header = () => {
         </InputRightElement>
       </InputGroup>
 
-      <HamburgerIcon w={6} h={6} />
+      <Link href="https://github.com/Jafarzar" target="_blank" w={8} h={8}>
+        <Icon
+          as={AiFillGithub}
+          transition="color 300ms"
+          w={8}
+          h={8}
+          _hover={{ color: "blue.800" }}
+        />
+      </Link>
     </HStack>
   );
 };

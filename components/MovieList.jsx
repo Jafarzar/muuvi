@@ -140,12 +140,17 @@ const MovieList = () => {
               See more <ChevronRightIcon />
             </Button>
           </HStack>
-          <Box h={[240, 240, 600]}>
+          <Box h={[350, 350, 600]}>
             <Swiper
               navigation={true}
               modules={[Navigation]}
-              slidesPerView={4}
+              slidesPerView={2}
               spaceBetween={30}
+              breakpoints={{
+                480: {
+                  slidesPerView: 4,
+                },
+              }}
             >
               {popFinalMovies?.error ? (
                 <Text>
@@ -154,7 +159,12 @@ const MovieList = () => {
               ) : (
                 popFinalMovies.data?.map((movie) => (
                   <SwiperSlide key={movie.id}>
-                    <Box w={300} h={400} position="relative">
+                    <Box
+                      maxW={300}
+                      w="full"
+                      h={[240, 240, 400]}
+                      position="relative"
+                    >
                       <Image
                         src={movie.image}
                         alt={movie.title}
@@ -215,12 +225,17 @@ const MovieList = () => {
               See more <ChevronRightIcon />
             </Button>
           </HStack>
-          <Box h={[240, 240, 600]}>
+          <Box h={[350, 350, 600]}>
             <Swiper
               navigation={true}
               modules={[Navigation]}
-              slidesPerView={4}
+              slidesPerView={2}
               spaceBetween={30}
+              breakpoints={{
+                480: {
+                  slidesPerView: 4,
+                },
+              }}
             >
               {soonFinalMovies?.error ? (
                 <Text>
@@ -229,7 +244,12 @@ const MovieList = () => {
               ) : (
                 soonFinalMovies.data?.map((movie) => (
                   <SwiperSlide key={movie.id}>
-                    <Box w={300} h={400} position="relative">
+                    <Box
+                      maxW={300}
+                      w="full"
+                      h={[240, 240, 400]}
+                      position="relative"
+                    >
                       <Image
                         src={movie.image}
                         alt={movie.title}
@@ -270,7 +290,11 @@ const MovieList = () => {
 
           {selectedData && (
             <ModalContent maxW={800} bg="teal.400">
-              <ModalHeader textAlign="center" bg="teal">
+              <ModalHeader
+                textAlign="center"
+                bg="teal"
+                fontSize={["sm", "sm", "lg"]}
+              >
                 {selectedData.title}
               </ModalHeader>
               <ModalCloseButton />
@@ -282,7 +306,9 @@ const MovieList = () => {
                   />
                 </AspectRatio>
                 <Stack direction="row" align="center" my={4}>
-                  <Heading>{selectedData.title}</Heading>
+                  <Heading fontSize={["sm", "sm", "lg"]}>
+                    {selectedData.title}
+                  </Heading>
                   <Text
                     fontSize={["xs", "xs", "md"]}
                     fontWeight="bold"
@@ -298,28 +324,37 @@ const MovieList = () => {
                   </Text>
                 </Stack>
                 <HStack mt={2}>
-                  <Icon as={FaImdb} w={[2, 2, 4]} color="yellow.400" />
+                  <Icon as={FaImdb} w={4} color="yellow.400" />
                   <Text fontSize={["xs", "xs", "md"]}>Imdb Rating: </Text>
                   <Text fontSize={["xs", "xs", "md"]}>
                     {selectedData.imDbRating ? selectedData.imDbRating : "-"}
                   </Text>
                 </HStack>
-                <Text mt={2}>{selectedData.plot}</Text>
-                <Heading size="md" mt={6} mb={2}>
+                <Text mt={2} fontSize={["xs", "xs", "md"]}>
+                  {selectedData.plot}
+                </Text>
+                <Heading fontSize={["sm", "sm", "md"]} mt={6} mb={2}>
                   Casts
                 </Heading>
                 <Swiper
                   navigation={true}
                   modules={[Navigation]}
-                  slidesPerView={5}
-                  spaceBetween={20}
+                  spaceBetween={10}
+                  slidesPerView={3}
+                  breakpoints={{
+                    480: {
+                      slidesPerView: 4,
+                      spaceBetween: 20,
+                    },
+                  }}
                 >
                   {selectedData.casts?.map((cast) => (
                     <SwiperSlide key={cast.id}>
                       <Box
                         position="relative"
-                        w={140}
-                        h={200}
+                        maxW={140}
+                        w="full"
+                        h={[130, 130, 200]}
                         mb={2}
                         bg="teal.800"
                       >

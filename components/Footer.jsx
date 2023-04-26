@@ -17,12 +17,12 @@ const Footer = () => {
           <Icon as={AiOutlineTwitter} />
           <Icon as={AiFillYoutube} />
         </HStack>
-        <HStack spacing={10}>
+        <HStack spacing={10} fontSize={["xs", "xs", "md"]}>
           <Text>Condition of Use</Text>
           <Text>Privacy & Policy</Text>
           <Text>Press Room</Text>
         </HStack>
-        <Text>©2023 Muuvi by Jafarzar</Text>
+        <Text fontSize={["xs", "xs", "md"]}>©2023 Muuvi by Jafarzar</Text>
       </VStack>
     </Container>
   );
